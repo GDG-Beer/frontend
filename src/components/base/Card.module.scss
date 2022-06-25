@@ -1,0 +1,142 @@
+.beer-card{
+  width: 10rem;
+  height: 12rem;
+  perspective: 40rem;
+  position: relative;
+  margin: 0;
+  animation: fadeIn .5s cubic-bezier(0.390, 0.575, 0.565, 1.000) 1;
+}
+
+.beer-card-container{
+  width: 10rem;
+  height: 12rem;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: translateZ(-8rem);
+  transition: transform 350ms cubic-bezier(0.390, 0.575, 0.565, 1.000);
+}
+
+.beer-card-container > div{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.beer-card-front{
+  background-image: linear-gradient(180deg, rgba(145,141,144,1) 0%, rgba(131, 130, 134, 0) 100%);
+  transform: translateZ(10rem);
+  border-radius: 0.625rem;
+
+  .beer-card-front-text {
+    position: absolute;
+    text-align: center;
+    top: 30%;
+    right: 5%;
+    width: 40%;
+
+    div {
+      font-size: 0.8rem;
+    }
+  }
+}
+
+.beer-card-rating {
+  flex-flow: row nowrap;
+  align-items: center;
+  height: 1rem;
+  line-height: 1rem;
+  vertical-align: middle;
+
+  img {
+    height: 100%;
+  }
+}
+
+.beer-card-right {
+  background-image: linear-gradient(0deg, rgba(145,141,144,1) 0%, rgba(92,91,94,0) 100%);
+  opacity: 0.08;
+  transform: rotateY(90deg) translateZ(5.6rem);
+  border-radius: 0.625rem;
+}
+
+.beer-card-right-text {
+  overflow: hidden;
+  position: absolute;
+  right:5%;
+  width: 60%;
+  height: 70%;
+  text-align: right;
+
+  h1 {
+    font-weight: 700;
+    font-size: 1.25rem;
+    margin: 0;
+  }
+}
+
+.beer-card-right-button {
+  position: absolute;
+  border: none;
+  padding: 0.25rem;
+  border-radius: 0.625rem;
+  bottom: 5%;
+  right: 5%;
+  cursor: pointer;
+  background-color: var(--beer-color-primary);
+  color: white;
+  transition: background-color 0.3s ease;
+  &:hover {
+    background-color: var(--beer-color-primary-d1);
+  }
+}
+
+.beer-card-container:hover{
+  transform: translateZ(-5.6rem) rotateY(-90deg);
+}
+
+.beer-card-container:hover .beer-card-front{
+  opacity: 0;
+}
+
+.beer-card-container:hover .beer-card-right{
+  opacity: 1;
+}
+
+img{
+  height: 100%;
+  transform-origin: top right;
+  transition: transform 300ms cubic-bezier(0.390, 0.575, 0.565, 1.000);
+  transition-delay: 100ms;
+  transform: rotateZ(1deg) skewX(3deg);
+  pointer-events: none;
+}
+
+.beer-card-img-wrapper{
+  animation: float 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) infinite alternate;
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  pointer-events: none;
+  backface-visibility: hidden;
+  height: 80%;
+}
+
+.beer-card-container:hover ~ .beer-card-img-wrapper img{
+  transform: scale(0.8) translateX(-110%) translateY(30%) rotateZ(-20deg);
+}
+
+@keyframes float{
+  0%{
+    transform: translateZ(1rem);
+  }
+  100%{
+    transform: translateY(-0.5rem) translateZ(1rem);
+  }
+}
+
+@keyframes fadeIn{
+  0%{
+    opacity: 0.33;
+    transform: scale(.89);
+  }
+}

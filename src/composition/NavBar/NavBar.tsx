@@ -19,7 +19,7 @@ const NavBar = ({ text }: Props) => {
           {text}
         </>
       )}
-      {!text && '로고'}
+      {!text && <img src={SVG('logo')} alt="logo" />}
     </div>
   )
 }

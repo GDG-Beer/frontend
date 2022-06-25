@@ -7,9 +7,10 @@
 html,
 body {
   width: 100%;
-  height: 100%;
+  height: 100vh;
+  background: linear-gradient(#e66465, #9198e5);
   margin: 0;
-  overflow-y: auto;
+  overflow: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -21,6 +22,7 @@ code {
 #beer-app-root {
   --beer-color-primary: hsla(250, 80%, 60%, 1);
   --beer-color-primary-d1: hsla(250, 80%, 45%, 1);
+
   --beer-color-secondary: hsla(240, 35%, 87%, 1);
 
   --beer-color-default: hsla(248, 15%, 44%, 1);
@@ -28,17 +30,41 @@ code {
   --beer-color-rating: hsla(43, 89%, 53%, 1);
   --beer-color-white: hsla(60, 100%, 100%, 1);
 
+  --beer-card: rgb(231, 231, 231);
+  --beer-card-d1: rgb(184, 184, 184);
+
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: 400;
   font-size: 1rem;
 
-  width: 100%;
-  height: 100%;
+  // Breakpoints
+  $breakpoint-mobile: 335px;
+  $breakpoint-tablet: 758px;
+  $breakpoint-desktop: 1024px;
+
+  @mixin mobile {
+    @media (min-width: #{$breakpoint-mobile}) and (max-width: #{$breakpoint-tablet - 1px}) {
+      @content;
+    }
+  }
+
+  @mixin tablet {
+    @media (min-width: #{$breakpoint-tablet}) and (max-width: #{$breakpoint-desktop - 1px}) {
+      @content;
+    }
+  }
+
+  @mixin desktop {
+    @media (min-width: #{$breakpoint-desktop}) {
+      @content;
+    }
+  }
 }
 
 #beer-app-body {
-  width: 428px;
-  height: 100%;
   margin: 0 auto;
-  padding-bottom: 4rem;
+  background-color: white;
+  min-height: 100vh;
+  min-width: 280px;
+  max-width: 425px;
 }

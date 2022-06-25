@@ -1,18 +1,14 @@
 .beer-my-page {
   display: flex;
   flex-direction: column;
-  width: 428px;
-  height: 100%;
-  padding-left: 19px;
-  padding-right: 19px;
+  padding: 1rem;
 }
 
 .beer-my-page-title {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  width: 100%;
-  height: 120px;
+  margin-bottom: 1rem;
   font-size: 36px;
   font-weight: 800;
 }
@@ -21,11 +17,9 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  padding: 20px;
-  width: 100%;
-  height: 125px;
-  gap: 25.99px;
-  box-shadow: 2px 2px 15px 0px #635f801a;
+  gap: 2rem;
+  padding: 1rem;
+  box-shadow: 4px 2px 8px gray;
   border-radius: 8px;
 
   img {
@@ -38,8 +32,6 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: 100%;
-    height: 100%;
 
     .beer-user-rating {
       color: gray;
@@ -51,7 +43,6 @@
   width: 100%;
 
   .beer-my-review-title {
-    width: 100%;
     padding: 20px;
     font-size: 20px;
     font-weight: 700;

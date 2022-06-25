@@ -1,3 +1,9 @@
+interface AlcoholInfo {
+  name: string
+  proof: number
+  price: number
+}
+
 declare module '*.svg' {
   const content: any
   export default content

@@ -4,6 +4,7 @@ import NavBar from '@/composition/NavBar/NavBar'
 import Footer from '@/composition/Footer/Footer'
 import MyPage from '@/pages/MyPage/MyPage'
 import Home from '@/pages/Home/Home'
+import InfoPage from '@/pages/InfoPage/InfoPage'
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <NavBar />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/info" element={<InfoPage />} />
           <Route path="/mypage" element={<MyPage />} />
         </Routes>
         <Footer />
