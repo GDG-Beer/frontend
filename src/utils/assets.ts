@@ -7,6 +7,8 @@ import logo from '@/images/logo.svg'
 import plus from '@/images/plus.svg'
 
 import profile from '@/images/profile.webp'
+import sampleFood from '@/images/sampleFood.webp'
+import asahi from '@/images/asahi.png'
 
 const _SVG: Record<string, string> = {
   back,
@@ -20,6 +22,8 @@ const _SVG: Record<string, string> = {
 
 const _IMG: Record<string, string> = {
   profile,
+  sampleFood,
+  asahi,
 }
 
 export const SVG = (key: string) => (_SVG[key] ? _SVG[key] : undefined)
