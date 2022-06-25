@@ -1,41 +1,36 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const BundleAnalyzerPlugin =
-  require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
-const Package = require("./package.json");
+const paths = require('./paths')
+const Package = require('./package.json')
+const CopyPlugin = require('copy-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const webpack = require('webpack')
+const sassRegex = /\.(scss|sass)$/
+const sassModuleRegex = /\.module\.(scss|sass)$/
 
-const sassRegex = /\.(scss|sass)$/;
-const sassModuleRegex = /\.module\.(scss|sass)$/;
-
+/** @type { import('webpack').Configuration } */
 const config = {
-  entry: "./src/index.js",
+  entry: paths.index,
   output: {
-    path: path.resolve(__dirname, "../dist"),
-    filename: `${Package.version.replace("^", "")}.js`,
-    publicPath: "/",
+    path: paths.output,
+    filename: `[name]-${Package.version.replace('^', '')}.js`,
+    publicPath: '/',
     clean: true,
   },
   resolve: {
-    alias: { "@": path.resolve(__dirname, "src") },
-    extensions: [".js", ".jsx"],
+    extensions: ['.ts', '.tsx', '.js', '.scss'],
+    alias: {
+      '@': paths.src,
+    },
   },
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(ts|tsx)$/,
         use: [
+          'babel-loader',
           {
-            loader: "babel-loader",
+            loader: 'ts-loader',
             options: {
-              presets: [
-                "@babel/preset-env",
-                [
-                  "@babel/preset-react",
-                  {
-                    runtime: "automatic",
-                  },
-                ],
-              ],
+              transpileOnly: true,
             },
           },
         ],
@@ -45,19 +40,19 @@ const config = {
         test: sassRegex,
         use: [
           {
-            loader: "style-loader",
+            loader: 'style-loader',
           },
           {
-            loader: "css-loader",
+            loader: 'css-loader',
             options: {
               importLoaders: 3,
               sourceMap: true,
               modules: {
-                mode: "icss",
+                mode: 'icss',
               },
             },
           },
-          "sass-loader",
+          'sass-loader',
         ],
         exclude: sassModuleRegex,
       },
@@ -65,20 +60,20 @@ const config = {
         test: sassModuleRegex,
         use: [
           {
-            loader: "style-loader",
+            loader: 'style-loader',
           },
           {
-            loader: "css-loader",
+            loader: 'css-loader',
             options: {
               importLoaders: 3,
               sourceMap: true,
               modules: {
-                mode: "local",
-                localIdentName: "[local]__[hash:base64:8]",
+                mode: 'local',
+                localIdentName: '[local]__[hash:base64:8]',
               },
             },
           },
-          "sass-loader",
+          'sass-loader',
         ],
         exclude: /node_modules/,
       },
@@ -86,7 +81,7 @@ const config = {
         test: /\.(png|jpg|jpeg|gif|svg)$/i,
         use: [
           {
-            loader: "url-loader",
+            loader: 'url-loader',
             options: {
               limit: 8192,
             },
@@ -97,26 +92,26 @@ const config = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./public/index.html",
-      filename: "index.html",
+      template: './public/index.html',
+      filename: 'index.html',
+    }),
+    new CopyPlugin({
+      patterns: [{ from: '.', to: '../', context: 'public' }],
+      options: {},
+    }),
+    new webpack.ProvidePlugin({
+      process: 'process/browser',
     }),
   ],
-  devtool: process.env.BUILD_MODE !== "production" ? "source-map" : false,
-  mode:
-    process.env.BUILD_MODE === "localhost"
-      ? "development"
-      : process.env.BUILD_MODE,
+  devtool: process.env.BUILD_MODE !== 'production' ? 'source-map' : false,
+  mode: process.env.BUILD_MODE === 'localhost' ? 'development' : process.env.BUILD_MODE,
   devServer: {
-    host: "localhost",
+    host: 'localhost',
     port: 3000,
     historyApiFallback: true,
     open: true,
     hot: true,
   },
-};
-
-if (process.env.BUILD_MODE === "localhost") {
-  config.plugins.push(new BundleAnalyzerPlugin());
 }
 
-module.exports = config;
+module.exports = config
