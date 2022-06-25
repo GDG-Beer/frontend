@@ -21,9 +21,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "cross-env BUILD_MODE=localhost webpack serve",
-    "watch": "cross-env BUILD_MODE=development webpack --config config/webpack/webpack.config.js",
-    "build": "cross-env BUILD_MODE=production webpack --config config/webpack/webpack.config.js"
+    "start": "cross-env BUILD_MODE=localhost webpack serve --config webpack.config.js",
+    "watch": "cross-env BUILD_MODE=development webpack --config webpack.config.js",
+    "build": "cross-env BUILD_MODE=production webpack --config webpack.config.js"
   },
   "eslintConfig": {
     "extends": [
