@@ -2,7 +2,7 @@ import React from 'react'
 import { Box, Grid } from '@mui/material'
 import cn from 'classnames/bind'
 import style from './InfoPage.module.scss'
-import Card from '@/components/base/Card'
+import Card from '@/components/base/Card/Card'
 const cx = cn.bind(style)
 
 const InfoPage = () => {
