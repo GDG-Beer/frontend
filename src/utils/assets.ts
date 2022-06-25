@@ -4,6 +4,7 @@ import house from '@/images/house.svg'
 import star from '@/images/star.svg'
 import user from '@/images/user.svg'
 import logo from '@/images/logo.svg'
+import plus from '@/images/plus.svg'
 
 import profile from '@/images/profile.webp'
 
@@ -14,6 +15,7 @@ const _SVG: Record<string, string> = {
   star,
   user,
   logo,
+  plus,
 }
 
 const _IMG: Record<string, string> = {

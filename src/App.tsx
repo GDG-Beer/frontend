@@ -5,6 +5,7 @@ import Footer from '@/composition/Footer/Footer'
 import MyPage from '@/pages/MyPage/MyPage'
 import Home from '@/pages/Home/Home'
 import InfoPage from '@/pages/InfoPage/InfoPage'
+import NewImage from '@/pages/NewImage/NewImage'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/info" element={<InfoPage />} />
           <Route path="/mypage" element={<MyPage />} />
+          <Route path="/new-image" element={<NewImage />} />
         </Routes>
         <Footer />
       </div>
