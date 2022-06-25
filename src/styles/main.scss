@@ -1,16 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
 
+* {
+  box-sizing: border-box;
+}
+
+html,
 body {
   width: 100%;
   height: 100vh;
   margin: 0;
+  overflow-y: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
 #beer-app-root {
@@ -25,9 +30,12 @@ code {
   --beer-color-primary: hsla(250, 80%, 60%, 1);
   --beer-color-primary-d1: hsla(250, 80%, 45%, 1);
 
+  --beer-color-secondary: hsla(240, 35%, 87%, 1);
+
   --beer-color-default: hsla(248, 15%, 44%, 1);
 
   --beer-color-rating: hsla(43, 89%, 53%, 1);
+  --beer-color-white: hsla(60, 100%, 100%, 1);
 
   --beer-card: rgb(231, 231, 231);
   --beer-card-d1: rgb(184, 184, 184);
@@ -61,8 +69,10 @@ code {
 }
 
 #beer-app-body {
-  height: 100%;
   width: 100%;
+  height: 100%;
   min-width: 280px;
   max-width: 425px;
+  margin: 0 auto;
+  padding-bottom: 4rem;
 }

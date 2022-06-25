@@ -1,21 +1,20 @@
 import React from 'react'
-import Card from './components/base/Card'
-import { Box, Grid } from '@mui/material'
+import { Routes, Route } from 'react-router-dom'
+import NavBar from '@/composition/NavBar/NavBar'
+import Footer from '@/composition/Footer/Footer'
+import MyPage from '@/pages/MyPage/MyPage'
+import Home from '@/pages/Home/Home'
 
 function App() {
-  const a = Array(60).fill(true)
   return (
     <div id="beer-app-root">
       <div id="beer-app-body">
-        <Box>
-          <Grid container spacing={12}>
-            {a.map((el) => (
-              <Grid item xs={6} md={4}>
-                <Card />
-              </Grid>
-            ))}
-          </Grid>
-        </Box>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/mypage" element={<MyPage />} />
+        </Routes>
+        <Footer />
       </div>
     </div>
   )

@@ -1,0 +1,102 @@
+.beer-my-page {
+  display: flex;
+  flex-direction: column;
+  width: 428px;
+  height: 100%;
+  padding-left: 19px;
+  padding-right: 19px;
+}
+
+.beer-my-page-title {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 120px;
+  font-size: 36px;
+  font-weight: 800;
+}
+
+.beer-user-profile {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
+  height: 125px;
+  gap: 25.99px;
+  box-shadow: 2px 2px 15px 0px #635f801a;
+  border-radius: 8px;
+
+  img {
+    width: 81.25px;
+    height: 81.25px;
+    border-radius: 50%;
+  }
+
+  .beer-user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;
+
+    .beer-user-rating {
+      color: gray;
+    }
+  }
+}
+
+.beer-my-review-wrapper {
+  width: 100%;
+
+  .beer-my-review-title {
+    width: 100%;
+    padding: 20px;
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  .beer-my-review-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+
+    .beer-review-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 215px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px gray;
+
+      .beer-review-image {
+        width: 100%;
+        height: 100%;
+        background: gray;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+      }
+
+      .beer-review-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        width: 100%;
+        padding-left: 20px;
+
+        .beer-review-rating {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: #f1b61c;
+          img {
+            width: 15px;
+            height: 15px;
+          }
+        }
+      }
+    }
+  }
+}
