@@ -3,6 +3,7 @@ import emptyMug from '@/images/emptyMug.svg'
 import house from '@/images/house.svg'
 import star from '@/images/star.svg'
 import user from '@/images/user.svg'
+import logo from '@/images/logo.svg'
 
 import profile from '@/images/profile.webp'
 
@@ -12,6 +13,7 @@ const _SVG: Record<string, string> = {
   house,
   star,
   user,
+  logo,
 }
 
 const _IMG: Record<string, string> = {

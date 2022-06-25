@@ -12,8 +12,8 @@ const Card = () => {
         <div className={cx('beer-card-front')}>
           <div className={cx('beer-card-front-text')}>
             <b>아사히</b>
-            <div className={cx('beer-card-star')}>
-              <img src={star} alt="" />
+            <div className={cx('beer-card-rating')}>
+              <img src={star} alt="star" />
               4.8
             </div>
           </div>
@@ -21,11 +21,12 @@ const Card = () => {
         <div className={cx('beer-card-right')}>
           <div className={cx('beer-card-right-text')}>
             <h1>아사히</h1>
-            <div className={cx('beer-card-star')}>
-              <img src={star} alt="" />
+            <div className={cx('beer-card-rating')}>
+              <img src={star} alt="star" />
               4.8
             </div>
             <div>5.5%</div>
+            <hr />
             <div>일본맥주일본맥주일본맥주일본맥주일본맥주</div>
           </div>
           <button className={cx('beer-card-right-button')}>더보기</button>
