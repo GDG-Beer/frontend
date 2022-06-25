@@ -10,17 +10,21 @@ const Footer = () => {
     <div className={cx('beer-footer')}>
       <Link to="/">
         <button>
-          <img src={SVG('house')} alt="house" />
+          <div className={cx('beer-footer-img-wrapper')}>
+            <img src={SVG('house')} alt="house" />
+          </div>
         </button>
       </Link>
       <Link to="/info">
         <button>
-          <img src={SVG('emptyMug')} alt="emptyMug" />
+          <img src={SVG('logo_indigo')} alt="logo_indigo" />
         </button>
       </Link>
       <Link to="/mypage">
         <button>
-          <img src={SVG('user')} alt="user" />
+          <div className={cx('beer-footer-img-wrapper')}>
+            <img src={SVG('user')} alt="user" />
+          </div>
         </button>
       </Link>
     </div>

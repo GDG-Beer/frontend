@@ -20,10 +20,11 @@
   position: absolute;
   width: 100%;
   height: 100%;
+  box-shadow: 2px 2px 15px hsla(247, 15%, 44%, 0.1);
 }
 
 .beer-card-front{
-  background-image: linear-gradient(180deg, rgba(145,141,144,1) 0%, rgba(131, 130, 134, 0) 100%);
+  background-image: linear-gradient(180deg, hsla(240, 35%, 94%, 1) 10%, #ffffff 100%);
   transform: translateZ(10rem);
   border-radius: 0.625rem;
 
@@ -53,7 +54,7 @@
 }
 
 .beer-card-right {
-  background-image: linear-gradient(0deg, rgba(145,141,144,1) 0%, rgba(92,91,94,0) 100%);
+  background-image: linear-gradient(0deg, rgb(255, 255, 255) 10%, hsla(240, 35%, 94%, 1) 100%);
   opacity: 0.08;
   transform: rotateY(90deg) translateZ(5.6rem);
   border-radius: 0.625rem;
@@ -63,21 +64,25 @@
   overflow: hidden;
   position: absolute;
   right:5%;
-  width: 60%;
+  width: 80%;
   height: 70%;
+  padding: 0.5rem;
+  padding-top: 1rem;
   text-align: right;
+  font-size: 0.75rem;
 
   h1 {
     font-weight: 700;
     font-size: 1.25rem;
     margin: 0;
+    margin-bottom: 0.25rem;
   }
 }
 
 .beer-card-right-button {
   position: absolute;
   border: none;
-  padding: 0.25rem;
+  padding: 0.25rem 0.5rem;
   border-radius: 0.625rem;
   bottom: 5%;
   right: 5%;
@@ -102,14 +107,12 @@
   opacity: 1;
 }
 
-img{
-  height: 100%;
-  transform-origin: top right;
-  transition: transform 300ms cubic-bezier(0.390, 0.575, 0.565, 1.000);
-  transition-delay: 100ms;
-  transform: rotateZ(1deg) skewX(3deg);
-  pointer-events: none;
+.beer-card-oneline-review {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
+
 
 .beer-card-img-wrapper{
   animation: float 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) infinite alternate;
@@ -118,7 +121,19 @@ img{
   left: 5%;
   pointer-events: none;
   backface-visibility: hidden;
+  width: 4rem;
   height: 80%;
+
+  img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    transform-origin: top right;
+    transition: transform 300ms cubic-bezier(0.390, 0.575, 0.565, 1.000);
+    transition-delay: 100ms;
+    transform: rotateZ(1deg) skewX(3deg);
+    pointer-events: none;
+  }
 }
 
 .beer-card-container:hover ~ .beer-card-img-wrapper img{

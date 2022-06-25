@@ -1,17 +1,21 @@
 import React from 'react'
 import cn from 'classnames/bind'
 import style from './Card.module.scss'
-import asahi from '@/images/asahi.png'
 import star from '@/images/star.svg'
 const cx = cn.bind(style)
 
-const Card = () => {
+interface CardProps {
+  beer: BeerInfo
+}
+
+const Card = ({ beer }: CardProps) => {
+  const { name, proof, photoUrl } = beer
   return (
     <div className={cx('beer-card')}>
       <div className={cx('beer-card-container')}>
         <div className={cx('beer-card-front')}>
           <div className={cx('beer-card-front-text')}>
-            <b>아사히</b>
+            <b>{name}</b>
             <div className={cx('beer-card-rating')}>
               <img src={star} alt="star" />
               4.8
@@ -20,20 +24,20 @@ const Card = () => {
         </div>
         <div className={cx('beer-card-right')}>
           <div className={cx('beer-card-right-text')}>
-            <h1>아사히</h1>
+            <b>{name}</b>
             <div className={cx('beer-card-rating')}>
               <img src={star} alt="star" />
               4.8
             </div>
-            <div>5.5%</div>
+            <div>도수: {proof}%</div>
             <hr />
-            <div>일본맥주일본맥주일본맥주일본맥주일본맥주</div>
+            <div className={cx('beer-card-oneline-review')}>한줄평 첫번째거</div>
           </div>
           <button className={cx('beer-card-right-button')}>더보기</button>
         </div>
       </div>
       <div className={cx('beer-card-img-wrapper')}>
-        <img src={asahi} alt="" />
+        <img src={photoUrl} alt="" />
       </div>
     </div>
   )

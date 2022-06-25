@@ -1,7 +1,10 @@
-interface AlcoholInfo {
+interface BeerInfo {
+  id: number
   name: string
+  origin: string
   proof: number
   price: number
+  photoUrl: string
 }
 
 declare module '*.svg' {

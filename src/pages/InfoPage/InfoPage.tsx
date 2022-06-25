@@ -1,19 +1,30 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Box, Grid } from '@mui/material'
 import cn from 'classnames/bind'
 import style from './InfoPage.module.scss'
 import Card from '@/components/base/Card'
+import http from '@/utils/http'
 const cx = cn.bind(style)
 
 const InfoPage = () => {
-  const temp = Array(12).fill(true)
+  const [beers, setBeers] = useState<BeerInfo[]>([])
+
+  const getBeers = async () => {
+    const res = await http.get('/beers/all')
+    setBeers(res.data.data)
+  }
+
+  useEffect(() => {
+    getBeers()
+  }, [])
+
   return (
     <div className={cx('beer-infopage')}>
       <Box>
         <Grid container spacing={12}>
-          {temp.map((e) => (
-            <Grid item xs={6}>
-              <Card />
+          {beers.map((beer, idx) => (
+            <Grid key={idx} item xs={6}>
+              <Card beer={beer} />
             </Grid>
           ))}
         </Grid>
