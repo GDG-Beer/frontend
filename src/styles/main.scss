@@ -7,17 +7,18 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
 #beer-app-root {
   --beer-color-primary: hsla(250, 80%, 60%, 1);
-  --beer-color-primary-d1: hsla(250, 80%, 60%, 1);
+  --beer-color-primary-d1: hsla(250, 80%, 45%, 1);
+  --beer-color-secondary: hsla(240, 35%, 87%, 1);
 
   --beer-color-default: hsla(248, 15%, 44%, 1);
 
   --beer-color-rating: hsla(43, 89%, 53%, 1);
+  --beer-color-white: hsla(60, 100%, 100%, 1);
 
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: 400;
