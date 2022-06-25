@@ -3,11 +3,11 @@ import cn from 'classnames/bind'
 import style from './button.module.scss'
 const cx = cn.bind(style)
 
-interface Props {
+interface ButtonProps {
   text: string
 }
 
-const Button = ({ text }: Props) => {
+const Button = ({ text }: ButtonProps) => {
   return (
     <>
       <button className={cx('beer-button')}>{text}</button>

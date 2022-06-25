@@ -7,21 +7,18 @@
   gap: 5rem;
   background-color: var(--beer-color-white);
 
-  & button {
+  button {
     background: none;
-    color: inherit;
     border: none;
     padding: 0;
-    font: inherit;
     cursor: pointer;
-    outline: inherit;
 
-    & img {
+    img {
       width: 2rem;
       height: 2rem;
       filter: invert(84%) sepia(6%) saturate(556%) hue-rotate(201deg) brightness(99%) contrast(95%);
 
-      &.active {
+      .currentPage {
         filter: invert(19%) sepia(86%) saturate(2529%) hue-rotate(243deg) brightness(113%) contrast(87%);
       }
     }
