@@ -5,6 +5,7 @@ interface BeerInfo {
   proof: number
   price: number
   photoUrl: string
+  review: string[]
 }
 
 interface BeerDetailInfo {

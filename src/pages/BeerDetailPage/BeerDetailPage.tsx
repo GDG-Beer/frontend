@@ -23,6 +23,12 @@ const BeerDetailPage = () => {
     setSnackList(res.data.data)
   }
 
+  const handleClickParing = (beer: BeerInfo) => {
+    navigate('/new-image', {
+      state: { beer: beer },
+    })
+  }
+
   const handleClickReview = (beer: BeerInfo) => {
     navigate('/review', {
       state: { beer: beer },
@@ -44,7 +50,7 @@ const BeerDetailPage = () => {
           {beer.name}
           <div className={cx('beer-info-price')}>
             <span>{beer.price}원</span>
-            <span>{beer.proof} 도</span>
+            <span>{beer.proof}도</span>
           </div>
           <div className={cx('beer-review-rating')}>
             <img src={SVG('star')} alt="star" />
@@ -54,16 +60,14 @@ const BeerDetailPage = () => {
       </div>
       <div className={cx('beer-info-btn-section')}>
         <button onClick={() => handleClickReview(beer)}>한줄평 작성</button>
-        <Link to={'/new-image'}>
-          <button>사진 업로드</button>
-        </Link>
+        <button onClick={() => handleClickParing(beer)}>사진 업로드</button>
       </div>
       <div className={cx('beer-info-comment-section')}>
         <div className={cx('beer-info-comment-title')}>한줄평</div>
         {beerDetail?.review.map((comment, idx) => {
           return (
             <div className={cx('beer-info-comment')} key={idx}>
-              {comment}
+              - {comment}
             </div>
           )
         })}

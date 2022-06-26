@@ -10,7 +10,7 @@ interface CardProps {
 }
 
 const Card = ({ beer }: CardProps) => {
-  const { name, proof, photoUrl } = beer
+  const { name, proof, photoUrl, review } = beer
   const navigate = useNavigate()
 
   const handleClickDetail = (beer: BeerInfo) => {
@@ -39,7 +39,7 @@ const Card = ({ beer }: CardProps) => {
             </div>
             <div>도수: {proof}%</div>
             <hr />
-            <div className={cx('beer-card-oneline-review')}>한줄평 첫번째거</div>
+            <div className={cx('beer-card-oneline-review')}>{beer.review[0]}</div>
           </div>
           <button className={cx('beer-card-right-button')} onClick={() => handleClickDetail(beer)}>
             더보기

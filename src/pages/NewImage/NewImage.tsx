@@ -3,12 +3,16 @@ import cn from 'classnames/bind'
 import style from './NewImage.module.scss'
 import { IMG, SVG } from '@/utils/assets'
 import axios from 'axios'
+import { useLocation, useNavigate } from 'react-router-dom'
 const cx = cn.bind(style)
 
 const NewImage = () => {
   const [imgBase64, setImgBase64] = useState('')
   const [newComment, setNewComment] = useState('')
   const [newImg, setNewImg] = useState('')
+  const location = useLocation()
+  const navigate = useNavigate()
+  const beer = location.state.beer
 
   const onChangeComment = (e: any) => {
     setNewComment(e.target.value)
@@ -30,7 +34,7 @@ const NewImage = () => {
     }
   }
 
-  const onClickSubmitHandler = () => {
+  const onClickSubmitHandler = (beer: BeerInfo) => {
     const formData = new FormData()
     formData.append('photo', newImg)
     formData.append('comment', newComment)
@@ -39,19 +43,24 @@ const NewImage = () => {
       .post('http://13.209.96.57:8080/reviews/1/snacks', formData, {
         headers: { 'Content-Type': 'multipart/form-data; ', accept: 'application/json' },
       })
-      .then((response) => console.log(response))
+      .then((response) => {
+        alert('사진이 등록되었습니다.')
+        navigate('/detail', {
+          state: { beer: beer },
+        })
+      })
       .catch((error) => console.log(error))
   }
 
   return (
     <div>
       <div className={cx('beer-card')}>
-        <img src={IMG('stella_artois')} alt="asahi" className={cx('beer-card-image')}></img>
+        <img src={beer.photoUrl} alt="asahi" className={cx('beer-card-image')}></img>
         <div className={cx('beer-card-info')}>
-          <span className={cx('beer-card-name')}>아사히</span>
+          <span className={cx('beer-card-name')}>{beer.name}</span>
           <div className={cx('beer-card-rating')}>
             <img src={SVG('star')} alt="star" />
-            5.0
+            {beer.proof}
           </div>
         </div>
       </div>
@@ -75,7 +84,7 @@ const NewImage = () => {
       </div>
       <div className={cx('beer-new-comment-section')}>
         <textarea className={cx('beer-new-comment')} placeholder="코멘트" onChange={onChangeComment} />
-        <button className={cx('beer-submit-btn')} onClick={onClickSubmitHandler}>
+        <button className={cx('beer-submit-btn')} onClick={() => onClickSubmitHandler(beer)}>
           등록하기
         </button>
       </div>
