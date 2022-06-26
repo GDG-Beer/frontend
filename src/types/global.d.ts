@@ -7,6 +7,14 @@ interface BeerInfo {
   photoUrl: string
 }
 
+interface BeerDetailInfo {
+  name: string
+  origin: string
+  photoUrl: string
+  score: number
+  review: string[]
+}
+
 declare module '*.svg' {
   const content: any
   export default content

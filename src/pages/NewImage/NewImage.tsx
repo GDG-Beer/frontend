@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import cn from 'classnames/bind'
 import style from './NewImage.module.scss'
-import { SVG } from '@/utils/assets'
+import { IMG, SVG } from '@/utils/assets'
 import axios from 'axios'
 const cx = cn.bind(style)
 
@@ -46,9 +46,9 @@ const NewImage = () => {
   return (
     <div>
       <div className={cx('beer-card')}>
-        <div className={cx('beer-card-image')}>이미지</div>
+        <img src={IMG('stella_artois')} alt="asahi" className={cx('beer-card-image')}></img>
         <div className={cx('beer-card-info')}>
-          <span className={cx('beer-card-name')}>이름</span>
+          <span className={cx('beer-card-name')}>아사히</span>
           <div className={cx('beer-card-rating')}>
             <img src={SVG('star')} alt="star" />
             5.0
