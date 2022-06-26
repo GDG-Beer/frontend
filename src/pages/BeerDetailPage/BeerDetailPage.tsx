@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import cn from 'classnames/bind'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import style from './BeerDetailPage.module.scss'
 import { IMG, SVG } from '@/utils/assets'
 import http from '@/utils/http'
@@ -8,6 +8,7 @@ const cx = cn.bind(style)
 
 const BeerDetailPage = () => {
   const location = useLocation()
+  const navigate = useNavigate()
   const [beerDetail, setBeerDetail] = useState<BeerDetailInfo>()
   const [snackList, setSnackList] = useState([])
   const beer = location.state.beer
@@ -22,14 +23,20 @@ const BeerDetailPage = () => {
     setSnackList(res.data.data)
   }
 
+  const handleClickReview = (beer: BeerInfo) => {
+    navigate('/review', {
+      state: { beer: beer },
+    })
+  }
+
   useEffect(() => {
     getBeerDetail(beer.id)
     getSnack(beer.id)
   }, [beer.id])
 
   return (
-    <div className={cx('beer-detail')}>
-      <div className={cx('beer-info')}>
+    <div className={cx('beer-info')}>
+      <div className={cx('beer-detail')}>
         <div className={cx('beer-image')}>
           <img src={beer.photoUrl} alt={beer.name} />
         </div>
@@ -46,9 +53,7 @@ const BeerDetailPage = () => {
         </div>
       </div>
       <div className={cx('beer-info-btn-section')}>
-        <Link to={'/new-comment'}>
-          <button>한줄평 작성</button>
-        </Link>
+        <button onClick={() => handleClickReview(beer)}>한줄평 작성</button>
         <Link to={'/new-image'}>
           <button>사진 업로드</button>
         </Link>
@@ -66,9 +71,11 @@ const BeerDetailPage = () => {
       <div className={cx('beer-info-images-section')}>
         <div className={cx('beer-info-image-title')}>사진</div>
         <div className={cx('beer-info-images')}>
-          {snackList.map((snack, idx) => {
-            return <img src={snack?.photoUrl} alt="food" key={idx} />
-          })}
+          {snackList.length !== 0
+            ? snackList.map((snack, idx) => {
+                return <img src={snack?.photoUrl} alt="food" key={idx} />
+              })
+            : '아직 사진이 없어요. 첫 게시글의 주인공이 되어 보세요!'}
         </div>
       </div>
     </div>

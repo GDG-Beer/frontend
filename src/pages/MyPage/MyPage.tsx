@@ -16,7 +16,7 @@ const MyPage = () => {
         </div>
       </div>
       <div className={cx('beer-my-review-wrapper')}>
-        <div className={cx('beer-my-review-title')}>나의 리뷰</div>
+        <div className={cx('beer-my-review-title')}>내 피드</div>
         <div className={cx('beer-my-review-container')}>
           <div className={cx('beer-review-card')}>
             <img src={IMG('sampleFood')} alt="sampleFood" className={cx('beer-review-image')} />

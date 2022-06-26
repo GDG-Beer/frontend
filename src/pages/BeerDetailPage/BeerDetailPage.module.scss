@@ -1,13 +1,21 @@
 .beer-info {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
   padding: 2rem;
+  min-height: 100vh;
 
-  .beer-image {
-    img {
-      width: 10rem;
-      height: 10rem;
+  .beer-detail {
+    display: flex;
+    justify-content: center;
+
+    .beer-image {
+      width: 8rem;
+      height: 12rem;
+
+      img {
+        object-fit: cover;
+        height: 100%;
+      }
     }
   }
 

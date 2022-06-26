@@ -6,7 +6,8 @@ import MyPage from '@/pages/MyPage/MyPage'
 import Home from '@/pages/Home/Home'
 import InfoPage from '@/pages/InfoPage/InfoPage'
 import NewImage from '@/pages/NewImage/NewImage'
-import BeerDetailPage from './pages/BeerDetailPage/BeerDetailPage'
+import BeerDetailPage from '@/pages/BeerDetailPage/BeerDetailPage'
+import ReviewPage from '@/pages/ReviewPage/ReviewPage'
 
 function App() {
   const { pathname } = useLocation()
@@ -18,6 +19,9 @@ function App() {
       break
     case '/detail':
       text = '상세 페이지'
+      break
+    case '/review':
+      text = '한줄평'
       break
     default:
       break
@@ -31,6 +35,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/info" element={<InfoPage />} />
           <Route path="/mypage" element={<MyPage />} />
+          <Route path="/review" element={<ReviewPage />} />
           <Route path="/new-image" element={<NewImage />} />
           <Route path="/detail" element={<BeerDetailPage />} />
         </Routes>
