@@ -5,8 +5,10 @@
   padding: 2rem;
 
   .beer-image {
-    width: 10rem;
-    height: 10rem;
+    img {
+      width: 10rem;
+      height: 10rem;
+    }
   }
 
   .beer-info-detail {

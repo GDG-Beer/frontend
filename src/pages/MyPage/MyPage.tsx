@@ -11,17 +11,17 @@ const MyPage = () => {
       <div className={cx('beer-user-profile')}>
         <img src={IMG('profile')} alt="profile" />
         <div className={cx('beer-user-info')}>
-          <span>닉네임</span>
-          <span className={cx('beer-user-rating')}>한줄평 0개</span>
+          <span>호빵맨</span>
+          <span className={cx('beer-user-rating')}>한줄평 2개</span>
         </div>
       </div>
       <div className={cx('beer-my-review-wrapper')}>
         <div className={cx('beer-my-review-title')}>나의 리뷰</div>
         <div className={cx('beer-my-review-container')}>
           <div className={cx('beer-review-card')}>
-            <div className={cx('beer-review-image')} />
+            <img src={IMG('sampleFood')} alt="sampleFood" className={cx('beer-review-image')} />
             <div className={cx('beer-review-info')}>
-              이름
+              신선한 육회 조합
               <div className={cx('beer-review-rating')}>
                 <img src={SVG('star')} alt="star" />
                 5.0
@@ -29,9 +29,9 @@ const MyPage = () => {
             </div>
           </div>
           <div className={cx('beer-review-card')}>
-            <div className={cx('beer-review-image')} />
+            <img src={IMG('sampleFood2')} alt="sampleFood" className={cx('beer-review-image')} />
             <div className={cx('beer-review-info')}>
-              이름
+              먹태와 맥주 조합
               <div className={cx('beer-review-rating')}>
                 <img src={SVG('star')} alt="star" />
                 5.0
@@ -39,39 +39,9 @@ const MyPage = () => {
             </div>
           </div>
           <div className={cx('beer-review-card')}>
-            <div className={cx('beer-review-image')} />
+            <img src={IMG('sampleFood3')} alt="sampleFood" className={cx('beer-review-image')} />
             <div className={cx('beer-review-info')}>
-              이름
-              <div className={cx('beer-review-rating')}>
-                <img src={SVG('star')} alt="star" />
-                5.0
-              </div>
-            </div>
-          </div>
-          <div className={cx('beer-review-card')}>
-            <div className={cx('beer-review-image')} />
-            <div className={cx('beer-review-info')}>
-              이름
-              <div className={cx('beer-review-rating')}>
-                <img src={SVG('star')} alt="star" />
-                5.0
-              </div>
-            </div>
-          </div>
-          <div className={cx('beer-review-card')}>
-            <div className={cx('beer-review-image')} />
-            <div className={cx('beer-review-info')}>
-              이름
-              <div className={cx('beer-review-rating')}>
-                <img src={SVG('star')} alt="star" />
-                5.0
-              </div>
-            </div>
-          </div>
-          <div className={cx('beer-review-card')}>
-            <div className={cx('beer-review-image')} />
-            <div className={cx('beer-review-info')}>
-              이름
+              식빵 튀김
               <div className={cx('beer-review-rating')}>
                 <img src={SVG('star')} alt="star" />
                 5.0
