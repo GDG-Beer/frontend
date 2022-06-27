@@ -3,7 +3,7 @@
 import axios, { AxiosInstance } from 'axios'
 
 const http: AxiosInstance = axios.create({
-  baseURL: 'http://13.209.96.57:8080/',
+  baseURL: 'http://54.180.121.148:8080/',
 })
 
 export default http
